@@ -14,7 +14,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import environ
 from pathlib import Path
-import os
 
 
 env = environ.Env(DEBUG=(bool, False))
@@ -31,7 +30,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ") # type: ignore
+ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")  # type: ignore
 
 
 # Application definition
@@ -139,10 +138,10 @@ MEDIA_ROOT = BASE_DIR / "mediafiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+AUTH_USER_MODEL = "users.User"
 
 
-
-
+# LOGGING
 import logging
 import logging.config
 from django.utils.log import DEFAULT_LOGGING
